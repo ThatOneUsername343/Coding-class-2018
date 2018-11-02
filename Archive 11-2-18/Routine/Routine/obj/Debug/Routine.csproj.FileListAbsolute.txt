@@ -1,0 +1,7 @@
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\Routine\Routine\bin\Debug\Routine.exe.config
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\Routine\Routine\bin\Debug\Routine.exe
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\Routine\Routine\bin\Debug\Routine.pdb
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\Routine\Routine\obj\Debug\Routine.csprojAssemblyReference.cache
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\Routine\Routine\obj\Debug\Routine.csproj.CoreCompileInputs.cache
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\Routine\Routine\obj\Debug\Routine.exe
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\Routine\Routine\obj\Debug\Routine.pdb

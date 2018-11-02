@@ -1,0 +1,7 @@
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Competency Exam\RMoore Competency Exam\obj\Debug\RMoore Competency Exam.csprojAssemblyReference.cache
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Competency Exam\RMoore Competency Exam\obj\Debug\RMoore Competency Exam.csproj.CoreCompileInputs.cache
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Competency Exam\RMoore Competency Exam\bin\Debug\RMoore Competency Exam.exe.config
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Competency Exam\RMoore Competency Exam\bin\Debug\RMoore Competency Exam.exe
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Competency Exam\RMoore Competency Exam\bin\Debug\RMoore Competency Exam.pdb
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Competency Exam\RMoore Competency Exam\obj\Debug\RMoore Competency Exam.exe
+C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Competency Exam\RMoore Competency Exam\obj\Debug\RMoore Competency Exam.pdb
