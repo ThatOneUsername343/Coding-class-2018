@@ -8,6 +8,9 @@ TagManager:
   - Lava
   - Jumping Collider
   - SecretWall
+  - Enemy
+  - Bullet
+  - Speed Enemy
   layers:
   - Default
   - TransparentFX

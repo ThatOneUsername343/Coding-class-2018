@@ -5,8 +5,11 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     public Vector3 Velocity = new Vector3(0, 0, 0);
+
+    //public GameObject explosion;
+
     [SerializeField]
-    float speed = 2f;
+    float speed = 1f;
 
     // Use this for initialization
     void Start()
@@ -44,7 +47,16 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag == "Ground")
         {
-            Destroy(gameObject);
+            //GameObject expl = Instantiate(explosion) as GameObject;
+            Destroy(gameObject); //Delete the rocket
+            //Destroy(expl, 3); // delete the explosion after 3 seconds
+        }
+
+        if (collision.tag == "Enemy")
+        {
+            //GameObject expl = Instantiate(explosion) as GameObject;
+            Destroy(gameObject); //Delete the rocket
+            //Destroy(expl, 3); // delete the explosion after 3 seconds
         }
     }
 }

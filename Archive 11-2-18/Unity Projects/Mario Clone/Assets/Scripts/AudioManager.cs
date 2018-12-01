@@ -10,6 +10,7 @@ public enum SoundEffect
     Jump,
     Death,
     Pew,
+    oof,
 }
 public enum BackGroundMusic
 {

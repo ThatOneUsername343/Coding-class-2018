@@ -1,19 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class Character : MonoBehaviour
 {
     public List<Vector3> teleportlocations = new List<Vector3>();
 
+    //Jumping
+    public Sprite BirdHero_0; // Drag your first sprite here
+    public Sprite BirdHero_1; // Drag your second sprite here
+
+    private SpriteRenderer spriteRenderer;
+
     [SerializeField]
     GameObject ballPrefab;
     float jump = 5.5f;
     float speed = 7;
+    float Timer = 0;
+
     bool canJump = true;
     bool FacingRight = false;
-    float Timer = 0;
 
     //Shooting
     float TimeToReach = 0;
@@ -38,6 +46,10 @@ public class Character : MonoBehaviour
         
         GameManager.Instance.Character = this;
         BackgroundStartPlaying = false;
+
+        spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
+        if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
+            spriteRenderer.sprite = BirdHero_0; // set the sprite to BirdHero_0
     }
 
     // Update is called once per frame
@@ -59,9 +71,8 @@ public class Character : MonoBehaviour
             //Shooting left
             if (FacingRight == false)
             {
-
                 newBall.GetComponent<Ball>().Velocity = -LookAtDirection(transform.eulerAngles.z);
-                newBall.transform.localRotation = Quaternion.Euler(0, 180, 0);
+                newBall.transform.localRotation = Quaternion.Euler(0, 0, 90);
                 AudioManager.Instance.PlayOneShot(SoundEffect.Pew);
                 canShoot = false;
             }
@@ -70,11 +81,12 @@ public class Character : MonoBehaviour
             if (FacingRight == true)
             {
                 newBall.GetComponent<Ball>().Velocity = LookAtDirection(transform.eulerAngles.z);
+                newBall.transform.localRotation = Quaternion.Euler(0, 0, 270);
                 AudioManager.Instance.PlayOneShot(SoundEffect.Pew);
                 canShoot = false;
             }
 
-            //Changing colors of rockets
+            //Changing colors of bullets
             newBall.GetComponent<SpriteRenderer>().color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
             if (Timer > TimeToReach)
             {
@@ -104,6 +116,7 @@ public class Character : MonoBehaviour
         {
             Velocity += Vector3.up * jump;
             canJump = false;
+            ChangeTheSprite(); // call method to change sprite
             AudioManager.Instance.PlayOneShot(SoundEffect.Jump);
         }
 
@@ -112,7 +125,7 @@ public class Character : MonoBehaviour
         {
             Velocity -= Vector3.right * speed * Time.deltaTime;
             FacingRight = false;
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
+            transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
 
         //Moving right
@@ -120,7 +133,7 @@ public class Character : MonoBehaviour
         {
             Velocity -= Vector3.left * speed * Time.deltaTime;
             FacingRight = true;
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
         if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
@@ -136,12 +149,29 @@ public class Character : MonoBehaviour
         transform.position = teleportlocations[Random.Range(0, teleportlocations.Count)];
     }
 
-    //Waiting to hit ground before can jump again
+    //Collisions and stuff
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.tag == "Ground")
         {
+            spriteRenderer.sprite = BirdHero_0;
             canJump = true;
+        }
+
+        if (collision.collider.tag == "Enemy")
+        {
+            //transform.position = reset;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
+        }
+    }
+
+    //If character isn't touching anything
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Ground")
+        {
+            spriteRenderer.sprite = BirdHero_1;
         }
     }
 
@@ -150,22 +180,29 @@ public class Character : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Lava"))
         {
-            transform.position = reset;
-            AudioManager.Instance.PlayOneShot(SoundEffect.Death);
+            //transform.position = reset;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
             speed = 7;
         }
     }
 
-    private void OnCollisionEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("SecretWall"))
-        {
-            GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-        }
-    }
-    
-public Vector3 LookAtDirection(float eulerAnglesZ)
+    public Vector3 LookAtDirection(float eulerAnglesZ)
     {
         return new Vector3(Mathf.Cos(eulerAnglesZ * Mathf.Deg2Rad), Mathf.Sin(eulerAnglesZ * Mathf.Deg2Rad), 0);
+    }
+
+    //Change the sprite when character jumps
+    void ChangeTheSprite()
+    {
+        if (spriteRenderer.sprite == BirdHero_0) // if the spriteRenderer sprite = BirdHero_0 then change to BirdHero_1
+        {
+            spriteRenderer.sprite = BirdHero_1;
+        }
+
+        else
+        {
+            spriteRenderer.sprite = BirdHero_0; // otherwise change it back to BirdHero_0
+        }
     }
 }
