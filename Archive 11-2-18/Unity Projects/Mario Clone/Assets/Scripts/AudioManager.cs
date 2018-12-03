@@ -11,6 +11,12 @@ public enum SoundEffect
     Death,
     Pew,
     oof,
+<<<<<<< HEAD
+    Explosion,
+    YoureTooSlow,
+    NotTheBees,
+=======
+>>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
 }
 public enum BackGroundMusic
 {
@@ -26,10 +32,10 @@ public class AudioManager
     private Dictionary<BackGroundMusic, AudioClip> BackGroundSound
     { get; set; }
 
-    private AudioSource SoundEffectSource
+    public AudioSource SoundEffectSource
     { get; set; }
 
-    private AudioSource BGMSource
+    public AudioSource BGMSource
     { get; set; }
 
     public static AudioManager Instance
@@ -47,7 +53,7 @@ public class AudioManager
             .ToDictionary(t => (BackGroundMusic)Enum.Parse(typeof(BackGroundMusic), t.name, true));
 
         BGMSource = new GameObject("BGMSource", typeof(AudioSource)).GetComponent<AudioSource>();
-        BGMSource.volume = .5f;
+        BGMSource.volume = 1f;
         BGMSource.loop = false;
         Object.DontDestroyOnLoad(BGMSource.gameObject);
 

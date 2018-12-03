@@ -65,10 +65,16 @@
     <Compile Include="Assets\Scripts\Ball.cs" />
     <Compile Include="Assets\Scripts\Camera.cs" />
     <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\Chasingplatform.cs" />
+    <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\SecretPlatform.cs" />
     <Compile Include="Assets\Scripts\SimpleEnemy.cs" />
+<<<<<<< HEAD
+    <Compile Include="Assets\Scripts\SpeedEnemy.cs" />
+=======
+>>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
     <Compile Include="Assets\Scripts\SpinningMovingPlatform.cs" />
     <Compile Include="Assets\Scripts\SpinningPlatform.cs" />
     <Reference Include="UnityEditor.StandardEvents">

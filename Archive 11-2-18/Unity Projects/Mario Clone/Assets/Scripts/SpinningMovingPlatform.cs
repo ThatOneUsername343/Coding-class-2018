@@ -22,7 +22,11 @@ public class SpinningMovingPlatform : MonoBehaviour
         //Spinning
         transform.Rotate(Vector3.back);
 
+<<<<<<< HEAD
+        //Moving to target
+=======
         //Moving to target 1
+>>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
         float step = speed * Time.deltaTime;
         if (transform.position == target.position)
         {

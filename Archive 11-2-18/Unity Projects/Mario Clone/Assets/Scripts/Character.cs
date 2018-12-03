@@ -105,6 +105,7 @@ public class Character : MonoBehaviour
             }
         }
 
+        //Gamemanager stuffs
         if (Input.GetKey(KeyCode.G))
         {
             GameManager.Instance.Character = this;
@@ -136,6 +137,7 @@ public class Character : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
+        //THE CLAMPS!!!!
         if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             Velocity = new Vector3(Velocity.x * (1 - Time.deltaTime * 5), Velocity.y, 0);
@@ -164,6 +166,21 @@ public class Character : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
         }
+<<<<<<< HEAD
+
+        if (collision.collider.tag == "Speed Enemy")
+        {
+            AudioManager.Instance.PlayOneShot(SoundEffect.YoureTooSlow);
+        }
+
+        if (collision.collider.tag == "Chasing Platform")
+        {
+            //transform.position = reset;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
+        }
+=======
+>>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
     }
 
     //If character isn't touching anything

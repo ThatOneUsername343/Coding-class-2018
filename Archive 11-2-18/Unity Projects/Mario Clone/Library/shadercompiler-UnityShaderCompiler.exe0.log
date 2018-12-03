@@ -38,5 +38,8 @@ Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+<<<<<<< HEAD
+=======
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+>>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
