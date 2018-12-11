@@ -11,7 +11,12 @@ public class SpeedEnemy : MonoBehaviour
 
     Animator animator;
 
+    private float Speed;
+
     private SpriteRenderer spriteRenderer;
+
+    Vector3 offset;
+    Vector3 offset2;
 
     // Use this for initialization
     void Start()
@@ -33,7 +38,7 @@ public class SpeedEnemy : MonoBehaviour
                                offset           // Point y+ toward the target.
                              );
 
-        Vector3 offset2 = target.position - transform.position;
+        offset2 = target.position - transform.position;
 
         // Construct a rotation as in the y+ case.
         Quaternion rotation = Quaternion.LookRotation(
@@ -44,7 +49,7 @@ public class SpeedEnemy : MonoBehaviour
         // Apply a compensating rotation that twists x+ to y+ before the rotation above.
         transform.rotation = rotation * Quaternion.Euler(0, 0, 0);
 
-        float Speed = speed * Time.deltaTime;
+        Speed = speed * Time.deltaTime;
 
         if (transform.position == target.position)
         {
@@ -62,15 +67,17 @@ public class SpeedEnemy : MonoBehaviour
         if (collision.tag == "Bullet")
         {
             animator.SetTrigger("Hit");
+            Speed = 0;
             this.GetComponent<PolygonCollider2D>().enabled = false;
+            AudioManager.Instance.PlayOneShot(SoundEffect.Explosion);
             Destroy(gameObject, .5f); //Delete the enemy
         }
-        
+
         if (collision.tag == "Player")
         {
             animator.SetTrigger("Touch");
             this.GetComponent<PolygonCollider2D>().enabled = false;
-            Destroy(gameObject, .5f); //Delete enemy
+            Destroy(gameObject/*, .5f*/); //Delete enemy
         }
 
         if (collision.tag == "Enemy")

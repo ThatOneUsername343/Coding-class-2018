@@ -3,6 +3,7 @@ PlayerPath?
 E:/Coding-Class-2018/Archive 11-2-18/Unity Projects/Mario Clone/Mario Clone.exe
 SceneListBegin?
 Assets/Scenes/SampleScene.unity
+Assets/Scenes/Game Over Scene.unity
 SceneListEnd?
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 cf455f7a806648c6ed4c7d3e3f8a0e03 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -118,7 +119,7 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 463516d5b5fe8e67a0a24c48f2095b04 UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInputModule
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
-8c3336db82f0214f30fd7a2815238d40 Assembly-CSharp.dll:.Character
+c5ad475e485dbd113efe7fa633400b4a Assembly-CSharp.dll:.Character
 33227001ac3cb2e0369b605ca6cae863 Assembly-CSharp.dll:.Camera
 086bbf3cb69fae41c86e0cd8d8f7b9b9 Assembly-CSharp.dll:.PauseMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.SpinningPlatform
@@ -156,3 +157,4 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Explosion
 1ee47048d700dd00b56f643026953707 Assembly-CSharp.dll:.Chasingplatform
+1d12f01c911bf24839bb1de2deafdf00 Assembly-CSharp.dll:.GameOverScreen

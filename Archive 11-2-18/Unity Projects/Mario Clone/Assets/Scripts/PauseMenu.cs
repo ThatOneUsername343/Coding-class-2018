@@ -2,20 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-<<<<<<< HEAD
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using Object = UnityEngine.Object;
-using System;
-=======
-using UnityEngine.UI;
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
 
 public class PauseMenu : MonoBehaviour
 {
     private bool isPaused = false;
 
-<<<<<<< HEAD
 
 
     public GUISkin guiSkin;
@@ -28,12 +21,10 @@ public class PauseMenu : MonoBehaviour
     private string clicked = "", MessageDisplayOnAbout = "About \n ";
     private Rect WindowRect = new Rect((Screen.width / 2) - 100, Screen.height / 2, 200, 200);
     private float volume = 1.0f;
-    private bool pause = false;
     private float SFXvolume = 1f;
     private float BGMvolume = 1f;
-    //audio.ignoreListenerVolume = true;
 
-
+    public static bool pause;
 
     // Use this for initialization
     void Start()
@@ -43,51 +34,56 @@ public class PauseMenu : MonoBehaviour
         //    MessageDisplayOnAbout += AboutTextLines[x] + " \n ";
         //}
         //MessageDisplayOnAbout += "Press Esc To Go Back";
-=======
-    // Use this for initialization
-    void Start()
-    {
-
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
     }
 
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
         if (/*clicked == "about" &&*/ Input.GetKeyDown(KeyCode.Escape))
         {
             isPaused = !isPaused;
             clicked = "";
-=======
-        if (Input.GetKeyDown(KeyCode.Escape)) //If the player presses Esc then the value of isPaused becomes the opposite. (Translated from French)
-        {
-            isPaused = !isPaused;
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
         }
+
+        //if (Input.GetKeyDown(KeyCode.Escape)) //If the player presses Esc then the value of isPaused becomes the opposite. (Translated from French)
+        //{
+        //    isPaused = !isPaused;
+        //}
 
         if (isPaused)
         {
             Time.timeScale = 0; //Stops time
-<<<<<<< HEAD
             AudioListener.pause = true;
-=======
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
         }
 
         else
         {
             Time.timeScale = 1; //Starts time
-<<<<<<< HEAD
             AudioListener.pause = false;
-=======
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
         }
     }
 
     void OnGUI()
     {
-<<<<<<< HEAD
+        //if (isPaused)
+        //{
+        //    //If the button is pressed then isPaused becomes false so the game resumes. (Translated from French)
+        //    if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height / 2 - 60, 100, 40), "Continue"))
+        //    {
+        //        isPaused = false;
+        //    }
+
+        //    //If the button is presser then we completely close the game or load the scene "Main Menu" (Translated from French)
+        //    //In the case of the button to leave it is necessary to increase its postion Y so that it is lower. (Translated from French)
+        //    if (GUI.Button(new Rect(Screen.width / 2 - 90, Screen.height / 2 + 00, 150, 40), "Load a different level"))
+        //    {
+        //        // Application.Quit(); 
+        //        Application.LoadLevel(""); //Loads a different level
+        //    }
+
+
+
+
         //if (background != null)
         //    GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), background);
 
@@ -99,7 +95,6 @@ public class PauseMenu : MonoBehaviour
         if (clicked == "" && isPaused)
         {
             WindowRect = GUI.Window(0, WindowRect, menuFunc, "Main Menu");
-            
         }
 
         if (clicked == "options")
@@ -134,6 +129,30 @@ public class PauseMenu : MonoBehaviour
 
             GUILayout.EndHorizontal();
         }
+
+        //if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height / 2 + 60, 100, 40), "Settings"))
+        //{
+        //    if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + 60, 100, 40), "SFX volume"))
+        //    {
+
+        //    }
+
+        //    if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, 100, 40), "Music volume"))
+        //    {
+
+        //    }
+
+        //    if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 - 60, 150, 40), "Change Background Music"))
+        //    {
+
+        //    }
+        //}
+
+        //if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height / 2 + 120, 100, 40), "Quit"))
+        //{
+        //    Application.Quit();
+        //    //Application.LoadLevel(""); 
+        //}
     }
 
     //If options is clicked
@@ -144,7 +163,7 @@ public class PauseMenu : MonoBehaviour
             clicked = "resolution";
         }
 
-        GUILayout.Box("Main Volume");
+        GUILayout.Box("Master Volume");
         volume = GUILayout.HorizontalSlider(volume, 0.0f, 2.0f);
         AudioListener.volume = volume;
 
@@ -195,47 +214,6 @@ public class PauseMenu : MonoBehaviour
 
             if (DragWindow)
                 GUI.DragWindow(new Rect(0, 0, Screen.width, Screen.height));
-=======
-        if (isPaused)
-        {
-            //If the button is pressed then isPaused becomes false so the game resumes. (Translated from French)
-            if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height / 2 - 60, 100, 40), "Continue"))
-            {
-                isPaused = false;
-            }
-
-            //If the button is presser then we completely close the game or load the scene "Main Menu" (Translated from French)
-            //In the case of the button to leave it is necessary to increase its postion Y so that it is lower. (Translated from French)
-            if (GUI.Button(new Rect(Screen.width / 2 - 90, Screen.height / 2 + 00, 150, 40), "Load a different level"))
-            {
-                // Application.Quit(); 
-                Application.LoadLevel(""); //Loads a different level
-            }
-
-            if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height / 2 + 60, 100, 40), "Settings"))
-            {
-                if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 + 60, 100, 40), "SFX volume"))
-                {
-
-                }
-
-                if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2, 100, 40), "Music volume"))
-                {
-
-                }
-
-                if (GUI.Button(new Rect(Screen.width / 2, Screen.height / 2 - 60, 150, 40), "Change Background Music"))
-                {
-
-                }
-            }
-
-            if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height / 2 + 120, 100, 40), "Quit"))
-            {
-                Application.Quit();
-                //Application.LoadLevel(""); 
-            }
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
         }
     }
 }

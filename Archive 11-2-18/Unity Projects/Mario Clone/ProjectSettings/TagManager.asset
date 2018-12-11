@@ -11,10 +11,8 @@ TagManager:
   - Enemy
   - Bullet
   - Speed Enemy
-<<<<<<< HEAD
   - Chasing Platform
-=======
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
+  - Game Over
   layers:
   - Default
   - TransparentFX

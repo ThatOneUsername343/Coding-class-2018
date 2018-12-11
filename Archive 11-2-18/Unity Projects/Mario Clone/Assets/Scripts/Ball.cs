@@ -47,29 +47,17 @@ public class Ball : MonoBehaviour
     {
         if (collision.tag == "Ground")
         {
-<<<<<<< HEAD
             Destroy(gameObject); //Delete the bullet
-=======
-            //GameObject expl = Instantiate(explosion) as GameObject;
-            Destroy(gameObject); //Delete the rocket
-            //Destroy(expl, 3); // delete the explosion after 3 seconds
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
         }
 
         if (collision.tag == "Enemy")
         {
-<<<<<<< HEAD
             Destroy(gameObject); //Delete the bullet
         }
 
         if (collision.tag == "SecretWall")
         {
             Destroy(gameObject); //Delete the bullet
-=======
-            //GameObject expl = Instantiate(explosion) as GameObject;
-            Destroy(gameObject); //Delete the rocket
-            //Destroy(expl, 3); // delete the explosion after 3 seconds
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
         }
     }
 }

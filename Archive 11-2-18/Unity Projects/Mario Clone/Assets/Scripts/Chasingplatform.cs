@@ -12,10 +12,6 @@ public class Chasingplatform : MonoBehaviour
     public float speed;
     private bool horizontalMove;
 
-    AudioSource m_MyAudioSource;
-
-    public Transform Soundtarget;
-
     //Audio Proximity Stuffs
     //public Transform audioTarget;
 
@@ -24,8 +20,6 @@ public class Chasingplatform : MonoBehaviour
     {
         startPos = transform.position;
         horizontalMove = true;
-
-        m_MyAudioSource = GetComponent<AudioSource>();
 
         ////Audio Stuffs
         //StartCoroutine(AdjustVolume());
@@ -57,14 +51,12 @@ public class Chasingplatform : MonoBehaviour
         }
     }
 
-    void Example()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (Soundtarget)
+        if (other.gameObject.tag == "Player")
         {
-            float dist = Vector3.Distance(transform.position, Soundtarget.position);
-            float volume = 1.0f;
-
-            m_MyAudioSource.volume = volume / dist;
+            other.gameObject.GetComponent<Character>().alive = false;
+            Time.timeScale = 0;
         }
     }
 
@@ -72,16 +64,16 @@ public class Chasingplatform : MonoBehaviour
     //{
     //    while (true)
     //    {
-    //        if (m_MyAudioSource.isPlaying)
+    //        if (AudioSource.isPlaying)
     //        { // do this only if some audio is being played in this gameObject's AudioSource
 
     //            float distanceToTarget = Vector3.Distance(transform.position, target.position); // Assuming that the target is the player or the audio listener
 
     //            if (distanceToTarget < 1) { distanceToTarget = 1; }
 
-    //            m_MyAudioSource.volume = 1 / distanceToTarget; // this works as a linear function, while the 3D sound works like a logarithmic function, so the effect will be a little different (correct me if I'm wrong)
+    //            AudioSource.volume = 1 / distanceToTarget; // this works as a linear function, while the 3D sound works like a logarithmic function, so the effect will be a little different (correct me if I'm wrong)
 
-    //            yield return new WaitForSeconds(.01f); // this will adjust the volume based on distance every 1 second (Obviously, You can reduce this to a lower value if you want more updates per second)
+    //            yield return new WaitForSeconds(1); // this will adjust the volume based on distance every 1 second (Obviously, You can reduce this to a lower value if you want more updates per second)
 
     //        }
     //    }

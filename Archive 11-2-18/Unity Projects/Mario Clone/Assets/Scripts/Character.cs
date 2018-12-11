@@ -8,17 +8,23 @@ public class Character : MonoBehaviour
 {
     public List<Vector3> teleportlocations = new List<Vector3>();
 
+    public float targetTime = 5.0f;
+
     //Jumping
     public Sprite BirdHero_0; // Drag your first sprite here
     public Sprite BirdHero_1; // Drag your second sprite here
 
     private SpriteRenderer spriteRenderer;
 
+    public static bool pause;
+
     [SerializeField]
     GameObject ballPrefab;
-    float jump = 5.5f;
-    float speed = 7;
-    float Timer = 0;
+    public float jump = 5.5f;
+    public float speed = 7;
+    public float maxSpeed = 35;
+    public float curSpeed = 7;
+    public float Timer = 0;
 
     bool canJump = true;
     bool FacingRight = false;
@@ -37,6 +43,8 @@ public class Character : MonoBehaviour
     Vector3 Velocity = new Vector3(0, 0, 0);
     Rigidbody2D rbody;
 
+    public bool alive;
+
     // Use this for initialization
     void Start()
     {
@@ -50,6 +58,10 @@ public class Character : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
         if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
             spriteRenderer.sprite = BirdHero_0; // set the sprite to BirdHero_0
+
+        alive = true;
+
+        AudioListener.pause = false;
     }
 
     // Update is called once per frame
@@ -143,6 +155,15 @@ public class Character : MonoBehaviour
             Velocity = new Vector3(Velocity.x * (1 - Time.deltaTime * 5), Velocity.y, 0);
         }
         rbody.velocity = new Vector3(Mathf.Clamp(Velocity.x, -2f, 2f), Mathf.Clamp(Velocity.y, -4f, jump), 0);
+
+        //Death stuff
+        if (alive == false)
+        {
+            //PlayerPrefs.SetString("lastLoadedScene", SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene("BonusScene");
+            SceneManager.LoadScene("Game Over Scene"/*, LoadSceneMode.Additive*/);
+            AudioListener.pause = true;
+        }
     }
 
     //Teleporting
@@ -160,27 +181,36 @@ public class Character : MonoBehaviour
             canJump = true;
         }
 
-        if (collision.collider.tag == "Enemy")
-        {
-            //transform.position = reset;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
-        }
-<<<<<<< HEAD
+        //if (collision.collider.tag == "Enemy")
+        //{
+        //    //transform.position = reset;
+        //    //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //    AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
+        //}
 
         if (collision.collider.tag == "Speed Enemy")
         {
             AudioManager.Instance.PlayOneShot(SoundEffect.YoureTooSlow);
+
+            //Speed enemy effect timer stuff
+            targetTime -= Time.deltaTime;
+            if (targetTime != 0.0f)
+            {
+                curSpeed = speed * 35;
+            }
+            
+            if (targetTime == 0.0f)
+            {
+                timerEnded();
+            }
         }
 
-        if (collision.collider.tag == "Chasing Platform")
-        {
-            //transform.position = reset;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
-        }
-=======
->>>>>>> 434f59cb9ffb999d3c29b8fed9f6bebe0adc8e2a
+        //if (collision.collider.tag == "Chasing Platform")
+        //{
+        //    //transform.position = reset;
+        //    //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //    AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
+        //}
     }
 
     //If character isn't touching anything
@@ -198,9 +228,10 @@ public class Character : MonoBehaviour
         if (collision.gameObject.CompareTag("Lava"))
         {
             //transform.position = reset;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            alive = false;
             AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
-            speed = 7;
+            //speed = 7;
         }
     }
 
@@ -221,5 +252,11 @@ public class Character : MonoBehaviour
         {
             spriteRenderer.sprite = BirdHero_0; // otherwise change it back to BirdHero_0
         }
+    }
+
+    //When the timer ends
+    void timerEnded()
+    {
+        curSpeed = speed;
     }
 }
