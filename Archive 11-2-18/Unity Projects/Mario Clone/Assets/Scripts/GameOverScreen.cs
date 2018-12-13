@@ -143,8 +143,8 @@ public class GameOverScreen : MonoBehaviour
             Application.Quit();
         }
 
-        if (DragWindow)
-            GUI.DragWindow(new Rect(0, 0, Screen.width, Screen.height));
+        //if (DragWindow)
+        //    GUI.DragWindow(new Rect(0, 0, Screen.width, Screen.height));
     }
 
     ////If options is clicked

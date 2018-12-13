@@ -13,6 +13,7 @@ TagManager:
   - Speed Enemy
   - Chasing Platform
   - Game Over
+  - Other Chasing Platform
   layers:
   - Default
   - TransparentFX

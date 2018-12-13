@@ -49,6 +49,9 @@ public class Chasingplatform : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }
+
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -70,7 +70,7 @@ public class SimpleEnemy : MonoBehaviour
         if (other.tag == "Bullet")
         {
             animator.SetTrigger("Hit");
-            Speed = 0;
+            speed = 0;
             this.GetComponent<PolygonCollider2D>().enabled = false;
             AudioManager.Instance.PlayOneShot(SoundEffect.Explosion);
             Destroy(gameObject, .5f); //Delete the enemy
@@ -79,9 +79,12 @@ public class SimpleEnemy : MonoBehaviour
         if (other.tag == "Speed Enemy")
         {
             AudioManager.Instance.PlayOneShot(SoundEffect.YoureTooSlow);
-            Speed += 2;
+            speed += 2;
         }
+    }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<Character>().alive = false;

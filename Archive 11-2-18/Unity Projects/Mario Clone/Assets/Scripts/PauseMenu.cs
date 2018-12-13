@@ -202,6 +202,11 @@ public class PauseMenu : MonoBehaviour
                 clicked = "options";
             }
 
+            if (GUILayout.Button("Restart Level"))
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+
             //if (GUILayout.Button("About"))
             //{
             //    clicked = "about";

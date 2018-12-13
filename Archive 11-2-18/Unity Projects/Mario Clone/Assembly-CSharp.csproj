@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\Explosion.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameOverScreen.cs" />
+    <Compile Include="Assets\Scripts\OtherChasingPlatform.cs" />
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\SecretPlatform.cs" />
     <Compile Include="Assets\Scripts\SimpleEnemy.cs" />
@@ -77,10 +78,10 @@
     <Compile Include="Assets\Scripts\SpinningPlatform.cs" />
     <Compile Include="Assets\Scripts\Timer.cs" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>E:/Coding-Class-2018/Archive 11-2-18/Unity Projects/Mario Clone/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/135672/Desktop/Mario Clone/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>E:/Coding-Class-2018/Archive 11-2-18/Unity Projects/Mario Clone/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/135672/Desktop/Mario Clone/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

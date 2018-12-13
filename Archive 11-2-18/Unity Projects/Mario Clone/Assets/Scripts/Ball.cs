@@ -55,6 +55,11 @@ public class Ball : MonoBehaviour
             Destroy(gameObject); //Delete the bullet
         }
 
+        if (collision.tag == "Speed Enemy")
+        {
+            Destroy(gameObject); //Delete the bullet
+        }
+
         if (collision.tag == "SecretWall")
         {
             Destroy(gameObject); //Delete the bullet

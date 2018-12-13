@@ -8,7 +8,7 @@ public class Character : MonoBehaviour
 {
     public List<Vector3> teleportlocations = new List<Vector3>();
 
-    public float targetTime = 5.0f;
+    public float targetTime = 5f;
 
     //Jumping
     public Sprite BirdHero_0; // Drag your first sprite here
@@ -28,6 +28,8 @@ public class Character : MonoBehaviour
 
     bool canJump = true;
     bool FacingRight = false;
+
+    bool SpeedEnemyTouch = false;
 
     //Shooting
     float TimeToReach = 0;
@@ -51,7 +53,7 @@ public class Character : MonoBehaviour
         canShoot = true;
         timeBetweenShotsCounter = timeBetweenShots;
         rbody = GetComponent<Rigidbody2D>();
-        
+
         GameManager.Instance.Character = this;
         BackgroundStartPlaying = false;
 
@@ -149,12 +151,28 @@ public class Character : MonoBehaviour
             transform.localRotation = Quaternion.Euler(0, 0, 0);
         }
 
-        //THE CLAMPS!!!!
         if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
         {
             Velocity = new Vector3(Velocity.x * (1 - Time.deltaTime * 5), Velocity.y, 0);
         }
-        rbody.velocity = new Vector3(Mathf.Clamp(Velocity.x, -2f, 2f), Mathf.Clamp(Velocity.y, -4f, jump), 0);
+
+        //THE CLAMPS!!!!
+        //If the speed enemy has not touched you
+        if (SpeedEnemyTouch == false)
+        {
+            rbody.velocity = new Vector3(Mathf.Clamp(Velocity.x, -2f, 2f), Mathf.Clamp(Velocity.y, -4f, jump), 0);
+        }
+
+        if (SpeedEnemyTouch == true)
+        {
+            targetTime -= Time.deltaTime;
+            rbody.velocity = new Vector3(Mathf.Clamp(Velocity.x, -5f, 5f), Mathf.Clamp(Velocity.y, -3f, jump), 0);
+            if (targetTime <= 0.0f)
+            {
+                timerEnded();
+            }
+        }
+
 
         //Death stuff
         if (alive == false)
@@ -188,23 +206,6 @@ public class Character : MonoBehaviour
         //    AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
         //}
 
-        if (collision.collider.tag == "Speed Enemy")
-        {
-            AudioManager.Instance.PlayOneShot(SoundEffect.YoureTooSlow);
-
-            //Speed enemy effect timer stuff
-            targetTime -= Time.deltaTime;
-            if (targetTime != 0.0f)
-            {
-                curSpeed = speed * 35;
-            }
-            
-            if (targetTime == 0.0f)
-            {
-                timerEnded();
-            }
-        }
-
         //if (collision.collider.tag == "Chasing Platform")
         //{
         //    //transform.position = reset;
@@ -233,6 +234,15 @@ public class Character : MonoBehaviour
             AudioManager.Instance.PlayOneShot(SoundEffect.Death, .5f);
             //speed = 7;
         }
+
+        if (collision.gameObject.tag == "Speed Enemy")
+        {
+            AudioManager.Instance.PlayOneShot(SoundEffect.YoureTooSlow);
+
+            //Speed enemy effect timer stuff
+            SpeedEnemyTouch = true;
+            speed = 7f;
+        }
     }
 
     public Vector3 LookAtDirection(float eulerAnglesZ)
@@ -257,6 +267,6 @@ public class Character : MonoBehaviour
     //When the timer ends
     void timerEnded()
     {
-        curSpeed = speed;
+        SpeedEnemyTouch = false;
     }
 }
