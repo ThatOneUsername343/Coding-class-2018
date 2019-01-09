@@ -1,7 +1,0 @@
-C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Hangman\RMoore Hangman\bin\Debug\RMoore Hangman.exe.config
-C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Hangman\RMoore Hangman\bin\Debug\RMoore Hangman.exe
-C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Hangman\RMoore Hangman\bin\Debug\RMoore Hangman.pdb
-C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Hangman\RMoore Hangman\obj\Debug\RMoore Hangman.csprojAssemblyReference.cache
-C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Hangman\RMoore Hangman\obj\Debug\RMoore Hangman.csproj.CoreCompileInputs.cache
-C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Hangman\RMoore Hangman\obj\Debug\RMoore Hangman.exe
-C:\Users\135672\OneDrive - Academy District 20\Coding Folder\RMoore Hangman\RMoore Hangman\obj\Debug\RMoore Hangman.pdb
