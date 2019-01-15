@@ -8,17 +8,32 @@ namespace Abstraction_and_Inheritance
 {
     class Pistols : Guns
     {
-        public bool isAkimbo;
+        protected bool isAkimbo;
 
-        public Pistols (float damage, float weight)
-            : base (damage, weight)
+        public Pistols (string description, float damage, float weight, int ammoCapacityMax, bool isAkimbo)
+            : base (description, damage, weight, ammoCapacityMax)
         {
             isGun = true;
+            this.isAkimbo = isAkimbo;
         }
 
         public override void MakeSound()
         {
             throw new NotImplementedException();
+        }
+
+        public override void ActivateItem()
+        {
+            if (ammoCapacityCur > 0)
+            {
+                Console.WriteLine("You just did " + damage + " damage to your opponent. You have " + ammoCapacityCur + " remaining ammo.");
+                ammoCapacityCur--;
+            }
+
+            else
+            {
+                Console.WriteLine("No ammo!");
+            }
         }
     }
 }

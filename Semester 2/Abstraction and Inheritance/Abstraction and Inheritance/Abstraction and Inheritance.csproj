@@ -44,6 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BitchLasagnia.cs" />
+    <Compile Include="Bladed.cs" />
+    <Compile Include="Blunt.cs" />
     <Compile Include="Guns.cs" />
     <Compile Include="M4A1.cs" />
     <Compile Include="Melee.cs" />

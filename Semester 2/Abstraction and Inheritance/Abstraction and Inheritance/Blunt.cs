@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace Abstraction_and_Inheritance
 {
-    class Melee : Weapons
+    class Blunt : Melee
     {
-        public Melee(string description, float damage, float weight)
-            : base (description, damage, weight)
+
+
+        public Blunt(string description, float damage, float weight)
+            : base(description, damage, weight)
         {
             isMelee = true;
         }
@@ -21,7 +23,6 @@ namespace Abstraction_and_Inheritance
 
         public override void ActivateItem()
         {
-            
             Console.WriteLine("You just did " + damage + " damage to your opponent.");
         }
     }

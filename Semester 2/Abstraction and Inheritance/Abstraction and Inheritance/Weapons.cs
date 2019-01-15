@@ -14,12 +14,14 @@ namespace Abstraction_and_Inheritance
         protected bool isGun;
         protected bool isTooHeavy;
 
-        public Weapons(float damage, float weight)
+        public Weapons(string description, float damage, float weight)
         {
             this.weight = weight;
             this.damage = damage;
         }
 
         public abstract void MakeSound();
+
+        public abstract void ActivateItem();
     }
 }

@@ -8,20 +8,28 @@ namespace Abstraction_and_Inheritance
 {
     class Guns : Weapons
     {
-        public bool isOverheated;
-        public float ammoCount;
-        public float damageDropOff;
-        public float fireRate;
+        protected bool isOverheated;
+        protected int ammoCapacityMax;
+        protected int ammoCapacityCur;
+        protected float damageDropOff;
+        protected float fireRate;
 
-        public Guns(float damage, float weight)
-            : base (damage, weight)
+        public Guns(string description, float damage, float weight, int ammoCapacityMax)
+            : base (description, damage, weight)
         {
             isGun = true;
+            this.ammoCapacityMax = ammoCapacityMax;
+            ammoCapacityCur = ammoCapacityMax;
         }
 
         public override void MakeSound()
         {
             throw new NotImplementedException();
+        }
+
+        public override void ActivateItem()
+        {
+
         }
     }
 }
