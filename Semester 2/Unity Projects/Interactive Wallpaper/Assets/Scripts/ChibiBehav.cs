@@ -15,7 +15,7 @@ public class ChibiBehav : MonoBehaviour
     private float time;
     private float HopTime;
     public float ChibiSpeed = 1;
-    public Vector2 hopHeightRight = new Vector2 (0, 0);
+    public Vector2 hopHeightRight = new Vector2(0, 0);
     public Vector2 hopHeightLeft = new Vector2(0 * -1, 0);
     public Vector2 jumpHeight = new Vector2(0, 0);
 
@@ -53,16 +53,19 @@ public class ChibiBehav : MonoBehaviour
         //Chibi hop timer stuffs
         if (touchingGround == true)
         {
-            canHop = true;
-
-            //Counts up
-            time += Time.deltaTime;
-
-            //Check if its the right time for the chibi to hop
-            if (time >= HopTime)
+            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.y <= 0 && transform.rotation.eulerAngles.z <= 0)
             {
-                Hop();
-                SetRandomTime();
+                canHop = true;
+
+                //Counts up
+                time += Time.deltaTime;
+
+                //Check if its the right time for the chibi to hop
+                if (time >= HopTime)
+                {
+                    Hop();
+                    SetRandomTime();
+                }
             }
         }
 
@@ -94,7 +97,7 @@ public class ChibiBehav : MonoBehaviour
             //Velocity -= Vector3.left * speed * Time.deltaTime;
             transform.Translate(ChibiSpeed * Time.deltaTime, 0f, 0f);  //makes chibi run
             GetComponent<Rigidbody2D>().AddForce(hopHeightRight, ForceMode2D.Impulse); //Makes chibi jump
-            
+
             transform.localRotation = Quaternion.Euler(0, 180, 0);
         }
     }
@@ -112,8 +115,8 @@ public class ChibiBehav : MonoBehaviour
         HopTime = Random.Range(minTime, maxTime);
     }
 
-    //Collisions and stuff
-    private void OnCollisionEnter2D(Collision2D collision)
+    //If touching something
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.collider.tag == "Ground")
         {
@@ -122,7 +125,12 @@ public class ChibiBehav : MonoBehaviour
                 touchingGround = true;
             }
         }
-        else
+    }
+
+    //If no longer touching something
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider.tag == "Ground")
         {
             touchingGround = false;
         }
@@ -191,6 +199,6 @@ public class ChibiBehav : MonoBehaviour
     //When you release the chibi from your grasp
     //private void OnMouseUp()
     //{
-        
+
     //}
 }
