@@ -16,7 +16,6 @@ namespace Deck_of_Cards
 
     public enum cardFace
     {
-        A,
         Two,
         Three,
         Four,
@@ -29,7 +28,7 @@ namespace Deck_of_Cards
         Jack,
         Queen,
         King,
-        value
+        Ace
     }
 
     public class Cards
@@ -39,31 +38,33 @@ namespace Deck_of_Cards
 
         public Cards(cardFace face, Suit suit)
         {
-            int I = (int)face;
+            //int I = (int)face;
             this.face = face;
             this.suit = suit;
         }
 
         public static Dictionary<cardFace, int> CardValues = new Dictionary<cardFace, int>()
-    {
-        {cardFace.A, 11},
-        {cardFace.Two, 2},
-        {cardFace.Three, 3 },
-        {cardFace.Four, 4 },
-        {cardFace.Five, 5 },
-        {cardFace.Six, 6 },
-        {cardFace.Seven, 7 },
-        {cardFace.Eight, 8 },
-        {cardFace.Nine, 9 },
-        {cardFace.Ten, 10 },
-        {cardFace.Jack, 10 },
-        {cardFace.Queen, 10 },
-        {cardFace.King, 10 }
-    };
+        {
+            {cardFace.Ace, 11},
+            {cardFace.Two, 2},
+            {cardFace.Three, 3 },
+            {cardFace.Four, 4 },
+            {cardFace.Five, 5 },
+            {cardFace.Six, 6 },
+            {cardFace.Seven, 7 },
+            {cardFace.Eight, 8 },
+            {cardFace.Nine, 9 },
+            {cardFace.Ten, 10 },
+            {cardFace.Jack, 10 },
+            {cardFace.Queen, 10 },
+            {cardFace.King, 10 }
+        };
 
         public void Print()
         {
-
+            Console.WriteLine("____________________");
+            Console.WriteLine("|" + face + " " + suit + "|");
+            Console.WriteLine("____________________");
         }
     }
 }

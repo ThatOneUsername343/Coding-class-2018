@@ -24,19 +24,18 @@ namespace Deck_of_Cards
         public void Shuffle()
         {
             Random rand = new Random();
-            int rholder = rand.Next();
-            Cards Holder = deck[rholder];
-            deck.RemoveAt(rholder);
-            deck.Add(Holder);
+            deck = deck.OrderBy(t => rand.Next()).ToList();
         }
 
         public Cards Draw()
         {
             Cards thatOneCard;
             if (deck.Count > 0)
-            {
+            {   
                 thatOneCard = deck.Last();
                 deck.RemoveAt(deck.Count() - 1);
+                Console.WriteLine("You drew a(n)");
+                thatOneCard.Print();
                 return thatOneCard;
             }
 
@@ -59,7 +58,7 @@ namespace Deck_of_Cards
         {
             for (int i = 0; i < deck.Count; i++)
             {
-                Console.WriteLine(deck[i] + ",");
+                deck[i].Print();
             }
         }
 
