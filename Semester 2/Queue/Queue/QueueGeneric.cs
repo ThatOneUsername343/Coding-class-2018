@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Queue
+namespace QueueGeneric
 {
-    class Queue
+    class Queue<T> : IEmptyable, IComparable, ICountable where T : IComparable
     {
         List<int> holder = new List<int>();
 

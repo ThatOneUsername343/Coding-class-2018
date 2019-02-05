@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Queue
 {
-    class Program
+    class Program : IPrintable, IEmptyable, ICountable
     {
+        static Random rand = new Random();
         static void Main(string[] args)
         {
             int myInt;
@@ -56,6 +57,18 @@ namespace Queue
                     }
                 }
             } while (Input != 5);
+
+            Console.WriteLine();
+
+            QueueGeneric<Currencies> currencies = new QueueGeneric<Currencies>();
+
+            for (int i = 0; i < 10; i++)
+            {
+                currencies.Enqueue(new Currencies(rand.Next(0, 100), rand.Next(0, 100), rand.Next(0, 100)));
+            }
+            Console.WriteLine("Printing currencies queue");
+            currencies.Print();
+            Console.ReadLine();
         }
     }
 }

@@ -53,8 +53,9 @@ public class ChibiBehav : MonoBehaviour
         //Chibi hop timer stuffs
         if (touchingGround == true)
         {
-            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.y <= 0 && transform.rotation.eulerAngles.z <= 0)
-            {
+            //rbody.freezeRotation = true;
+            //if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
+            //{
                 canHop = true;
 
                 //Counts up
@@ -66,7 +67,7 @@ public class ChibiBehav : MonoBehaviour
                     Hop();
                     SetRandomTime();
                 }
-            }
+            //}
         }
 
         else
@@ -120,7 +121,7 @@ public class ChibiBehav : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
-            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.y <= 0 && transform.rotation.eulerAngles.z <= 0)
+            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
             {
                 touchingGround = true;
             }
@@ -155,7 +156,7 @@ public class ChibiBehav : MonoBehaviour
     {
         if (touchingGround == true)
         {
-            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.y <= 0 && transform.rotation.eulerAngles.z <= 0)
+            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
             {
                 canJump = true;
                 ChangeTheSprite();
@@ -175,7 +176,7 @@ public class ChibiBehav : MonoBehaviour
     {
         if (touchingGround == true)
         {
-            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.y <= 0 && transform.rotation.eulerAngles.z <= 0)
+            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
             {
                 ChangeTheSprite();
             }
@@ -186,6 +187,7 @@ public class ChibiBehav : MonoBehaviour
     void OnMouseDown()
     {
         offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        //rbody.freezeRotation = false;
     }
 
     //When you drag the chibi around while holding her
