@@ -20,16 +20,15 @@ namespace Algorithm_Practice_4
             //}
 
             string path = AppDomain.CurrentDomain.BaseDirectory + @"Prob04.in_.txt";
-
             using (StreamReader Strem = new StreamReader(path))
             {
                 string line = Strem.ReadLine();
                 int i;
-                float ThatOneFloat = 3, number = float.Parse(line);
+                float ThatOneFloat = 0, number = float.Parse(line);
                 ThatOneFloat = number;
                 while ((line = Strem.ReadLine()) != null)
                 {
-                    for (i = line; i <= number; i++)
+                    for (i = 1; i <= number; i++)
                     {
                         ThatOneFloat = ThatOneFloat * number;
                     }
