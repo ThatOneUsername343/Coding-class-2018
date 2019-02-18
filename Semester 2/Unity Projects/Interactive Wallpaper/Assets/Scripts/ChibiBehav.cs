@@ -56,17 +56,17 @@ public class ChibiBehav : MonoBehaviour
             //rbody.freezeRotation = true;
             //if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
             //{
-                canHop = true;
+            canHop = true;
 
-                //Counts up
-                time += Time.deltaTime;
+            //Counts up
+            time += Time.deltaTime;
 
-                //Check if its the right time for the chibi to hop
-                if (time >= HopTime)
-                {
-                    Hop();
-                    SetRandomTime();
-                }
+            //Check if its the right time for the chibi to hop
+            if (time >= HopTime)
+            {
+                Hop();
+                SetRandomTime();
+            }
             //}
         }
 
@@ -121,10 +121,10 @@ public class ChibiBehav : MonoBehaviour
     {
         if (collision.collider.tag == "Ground")
         {
-            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
-            {
-                touchingGround = true;
-            }
+            //if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
+            //{
+            touchingGround = true;
+            //}
         }
     }
 
@@ -156,11 +156,11 @@ public class ChibiBehav : MonoBehaviour
     {
         if (touchingGround == true)
         {
-            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
-            {
-                canJump = true;
-                ChangeTheSprite();
-            }
+            //if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
+            //{
+            canJump = true;
+            ChangeTheSprite();
+            //}
 
             //Jumping
             if (canJump == true)
@@ -176,10 +176,10 @@ public class ChibiBehav : MonoBehaviour
     {
         if (touchingGround == true)
         {
-            if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
-            {
-                ChangeTheSprite();
-            }
+            //if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
+            //{
+            ChangeTheSprite();
+            //}
         }
     }
 
