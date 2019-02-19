@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Algorithm_Practice_2
 {
@@ -10,7 +11,7 @@ namespace Algorithm_Practice_2
     {
         static void Main(string[] args)
         {
-            List<int> ThatOneList = new List<int>() { 0, 7, 3, 6, 8, 2, 3 };
+            
 
         }
     }
