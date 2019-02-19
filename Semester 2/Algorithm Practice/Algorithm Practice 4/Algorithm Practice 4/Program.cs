@@ -22,18 +22,19 @@ namespace Algorithm_Practice_4
             string path = AppDomain.CurrentDomain.BaseDirectory + @"Prob04.in_.txt";
             using (StreamReader Strem = new StreamReader(path))
             {
-                string line = Strem.ReadLine();
+                string line;
                 int i;
-                float ThatOneFloat = 0, number = float.Parse(line);
-                ThatOneFloat = number;
+                float ThatOneFloat = 1;
                 while ((line = Strem.ReadLine()) != null)
                 {
+                    int number = int.Parse(line);
                     for (i = 1; i <= number; i++)
                     {
-                        ThatOneFloat = ThatOneFloat * number;
+                        ThatOneFloat = ThatOneFloat * i;
                     }
+                    Console.WriteLine("Factorial of " + number + " is: " + ThatOneFloat);
+                    ThatOneFloat = 1;
                 }
-                Console.Write("Factorial of " + number + " is: " + ThatOneFloat);
                 Console.ReadLine();
             }
         }
