@@ -16,13 +16,49 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor motor;
 
+    //Shooting stuffs
+    [SerializeField]
+    GameObject BulletPrefab;
+    float TimeToReach = 0;
+    float timeBetweenShots = .5f;
+    float timeBetweenShotsCounter = .5f;
+    bool canShoot;
+
+    //Gun
+    [SerializeField]
+    GameObject Gun;
+
+
     private void Start()
     {
         motor = GetComponent<PlayerMotor>();
+
+        //Shooting stuffs
+        canShoot = true;
+        timeBetweenShotsCounter = timeBetweenShots;
     }
 
     private void Update()
     {
+        //Shooting stuffs
+        if (Input.GetKeyDown(KeyCode.Mouse1) && canShoot)
+        {
+            GameObject InstantiateBullet = Instantiate(BulletPrefab, Vector3.zero, Quaternion.identity);
+            InstantiateBullet.transform = Gun.transform;
+            canShoot = false;
+        }
+
+        //Fire rate
+        if (!canShoot)
+        {
+            timeBetweenShotsCounter -= Time.deltaTime;
+            if (timeBetweenShotsCounter <= 0)
+            {
+                canShoot = true;
+                timeBetweenShotsCounter = timeBetweenShots;
+            }
+        }
+
         //calculate rotation as a 3d vector (turning around)
         float yRot = Input.GetAxisRaw("Mouse X");
         //calculate camera rotation as a 3d vector (turning around)

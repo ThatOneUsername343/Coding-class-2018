@@ -11,8 +11,19 @@ namespace Algorithm_Practice_2
     {
         static void Main(string[] args)
         {
-            
+            string path = AppDomain.CurrentDomain.BaseDirectory + @"Prob02.in_.txt";
+            using (StreamReader Strem = new StreamReader(path))
+            {
+                string line;
+                int i;
+                float thatOneFloat;
+                while ((line = Strem.ReadLine()) != null)
+                {
+                    IEnumerable<line> 
+                }
 
+                Console.ReadLine();
+            }
         }
     }
 }
