@@ -1176,7 +1176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canJump: 0
   canHop: 0
-  FacingLeft: 1
+  FacingLeft: 0
   touchingGround: 0
   maxTime: 6
   minTime: 1

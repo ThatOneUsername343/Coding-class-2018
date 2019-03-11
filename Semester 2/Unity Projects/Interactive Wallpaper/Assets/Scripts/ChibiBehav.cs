@@ -57,6 +57,7 @@ public class ChibiBehav : MonoBehaviour
             //if (transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 0 || transform.rotation.eulerAngles.x <= 0 && transform.rotation.eulerAngles.z <= 0 && transform.rotation.eulerAngles.y <= 180)
             //{
             canHop = true;
+            ChibiSpeed = 1;
 
             //Counts up
             time += Time.deltaTime;
@@ -199,8 +200,8 @@ public class ChibiBehav : MonoBehaviour
     }
 
     //When you release the chibi from your grasp
-    //private void OnMouseUp()
-    //{
-
-    //}
+    private void OnMouseUp()
+    {
+        
+    }
 }
