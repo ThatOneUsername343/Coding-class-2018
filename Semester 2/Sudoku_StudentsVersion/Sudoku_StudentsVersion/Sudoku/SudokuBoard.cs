@@ -86,37 +86,82 @@ namespace Sudoku
         /// </returns>
         public bool VerifyBoard()
         {
-            //bool ItIsDoneMyLord = true;
+            for (int x = 0; x < 9; x++)
+            {
+                for (int y = 0; y < 9; y++)
+                {
+                    if (Board[x, y] == 0)
+                    {
+                        return false;
+                    }
+                }
+            }
 
+            //Check all boxes in the board, make sure they contain ONLY values 1-9. No duplicates, no exclusions
             for (int x = 0; x < 3; x++)
             {
                 for (int y = 0; y < 3; y++)
                 {
-                    //Square
-                    List<int> Square = new List<int>(x *3, y * 3);
-                    for (int i = 0; i < length; i++)
+                    List<int> square = new List<int>();
+                    for (int i = 0; i < 3; i++)
                     {
-                        for (int k = 0; k < length; k++)
+                        for (int k = 0; k < 3; k++)
                         {
-                            if ()
-                            {
-
-                            }
-                            
+                            square.Add(Board[i + x * 3, k + y * 3]);
                         }
                     }
+
+                    for (int i = 1; i <= 9; i++)
+                    {
+                        if (!square.Contains(i))
+                        {
+                            return false;
+                        }
+                    }
+                    square.Clear();
                 }
             }
-            return false;
-            //return ItIsDoneMyLord;
-
-
-            //Check all columns in the board, make sure they contain ONLY values 1-9. No duplicates, no exclusions
 
             //Check all rows in the board, make sure they contain ONLY values 1-9. No duplicates, no exclusions
+            List<int> Horizontal = new List<int>();
+            for (int i = 0; i < 9; i++)
+            {
+                for (int k = 0; k < 9; k++)
+                {
+                    Horizontal.Add(Board[i, k]);
+                }
 
-            //Check all boxes in the board, make sure they contain ONLY values 1-9. No duplicates, no exclusions
+                for (int x = 1; x <= 9; x++)
+                {
+                    if (!Horizontal.Contains(x))
+                    {
+                        return false;
+                    }
+                }
+                Horizontal.Clear();
+            }
+
+            //Check all columns in the board, make sure they contain ONLY values 1-9. No duplicates, no exclusions
+            List<int> Vertical = new List<int>();
+            for (int i = 0; i < 9; i++)
+            {
+                for (int k = 0; k < 9; k++)
+                {
+                    Vertical.Add(Board[k, i]);
+                }
+
+                for (int y = 1; y <= 9; y++)
+                {
+                    if (!Vertical.Contains(y))
+                    {
+                        return false;
+                    }
+                }
+                Vertical.Clear();
+            }
+            return true;
         }
+
 
         /// <summary>
         /// Your code must look at all the Sudoku board cells in the specified column to find what digits are already used; none of those digits can be used in the blank cell. 
@@ -139,17 +184,124 @@ namespace Sudoku
         /// <returns>List of valid integers for the given row and column</returns>
         public List<int> FindLegalDigits(int row, int col)
         {
-            throw new NotImplementedException();
 
             //Create list of all possible digits (1-9)
+            List<int> digits = new List<int>();
+            List<int> legalDig = new List<int>();
 
             //Remove from the list all elements in the row
+            for (int i = 0; i < 9; i++)
+            {
+                digits.Add(Board[i, row]);
+            }
 
             //Remove from the list all elements in the column
+            for (int i = 0; i < 9; i++)
+            {
+                digits.Add(Board[col, i]);
+            }
 
             //remove from the list all elements in the box
+            if (row < 3 && col < 3)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row < 3 && col > 2 && col < 6)
+            {
+                for (int i = 2; i < 6; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row < 3 && col > 5)
+            {
+                for (int i = 6; i < 9; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row > 2 && row < 6 && col < 3)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 2; j < 6; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row > 2 && row < 6 && col > 2 && col < 6)
+            {
+                for (int i = 2; i < 6; i++)
+                {
+                    for (int j = 2; j < 6; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row > 2 && row < 6 && col > 5)
+            {
+                for (int i = 6; i < 9; i++)
+                {
+                    for (int j = 2; j < 6; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row > 5 && col < 3)
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 6; j < 9; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row > 5 && col > 2 && col < 6)
+            {
+                for (int i = 2; i < 6; i++)
+                {
+                    for (int j = 6; j < 9; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            else if (row > 5 && col > 5)
+            {
+                for (int i = 6; i < 9; i++)
+                {
+                    for (int j = 6; j < 9; j++)
+                    {
+                        digits.Add(Board[i, j]);
+                    }
+                }
+            }
+            for (int i = 1; i <= 9; i++)
+            {
+                if (!digits.Contains(i))
+                {
+                    legalDig.Add(i);
+                }
+            }
 
             //return the list
+            return legalDig;
         }
 
         /// <summary>
@@ -166,7 +318,7 @@ namespace Sudoku
                     Console.WriteLine("  ---------+---------+---------");
                 }
                 Console.Write(row + "|");
-                for(int col = 0; col < 9; col++)
+                for (int col = 0; col < 9; col++)
                 {
                     if (col % 3 == 0 && col != 0)
                     {
