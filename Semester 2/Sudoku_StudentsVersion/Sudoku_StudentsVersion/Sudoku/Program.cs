@@ -194,8 +194,9 @@ namespace Sudoku
                     for (int k = 0; k < 9; k++)
                     {
                         ThatOneBoard.FindLegalDigits(i,k);
-
-                        boards.Enqueue(ThatOneBoard);
+                        SudokuBoard newBoard = new SudokuBoard(ThatOneBoard);
+                        
+                        boards.Enqueue(newBoard(board, i, k));
                     }
                 }
             }
