@@ -193,10 +193,15 @@ namespace Sudoku
                 {
                     for (int k = 0; k < 9; k++)
                     {
-                        ThatOneBoard.FindLegalDigits(i,k);
-                        SudokuBoard newBoard = new SudokuBoard(ThatOneBoard);
-                        
-                        boards.Enqueue(newBoard(board, i, k));
+                        List<int> ThisIsAList = new List<int>();
+                        ThisIsAList = ThatOneBoard.FindLegalDigits(i, k);
+                        for (int j = 0;  j < ThisIsAList.Count;  j++)
+                        {
+                            SudokuBoard newBoard = new SudokuBoard(ThatOneBoard);
+                            newBoard(j) = ThisIsAList(i, k);
+                            boards.Enqueue(newBoard);
+                        }
+
                     }
                 }
             }
