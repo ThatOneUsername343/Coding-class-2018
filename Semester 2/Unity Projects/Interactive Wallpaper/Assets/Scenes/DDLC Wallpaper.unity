@@ -127,6 +127,9 @@ GameObject:
   - component: {fileID: 351720694}
   - component: {fileID: 351720699}
   - component: {fileID: 351720701}
+  - component: {fileID: 351720700}
+  - component: {fileID: 351720703}
+  - component: {fileID: 351720702}
   m_Layer: 8
   m_Name: Natsuki
   m_TagString: Chibi
@@ -373,8 +376,20 @@ MonoBehaviour:
   neverHideWindow: 0
   keepBottomMost: 0
   borderless: 0
-  behindIcons: 0
+  behindIcons: 1
   useRainityInput: 1
+--- !u!114 &351720700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351720693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af6c83e9c466254e894c704cf896fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &351720701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +403,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputEntries: []
+--- !u!114 &351720702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351720693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15db22024fe3f3747a7a43cd42d710d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &351720703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351720693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &392233861
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,9 +582,9 @@ MonoBehaviour:
   hideFromTaskbar: 0
   neverHideWindow: 0
   keepBottomMost: 0
-  borderless: 1
-  behindIcons: 1
-  useRainityInput: 0
+  borderless: 0
+  behindIcons: 0
+  useRainityInput: 1
 --- !u!1 &479049966
 GameObject:
   m_ObjectHideFlags: 0
@@ -548,6 +597,7 @@ GameObject:
   - component: {fileID: 479049969}
   - component: {fileID: 479049968}
   - component: {fileID: 479049967}
+  - component: {fileID: 479049971}
   m_Layer: 0
   m_Name: Platform (3)
   m_TagString: Untagged
@@ -664,6 +714,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &479049971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479049966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e563aac59ebd145bb70172d0ef24c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowOffset: {x: 0, y: -40}
+  hideFromTaskbar: 0
+  neverHideWindow: 0
+  keepBottomMost: 0
+  borderless: 0
+  behindIcons: 0
+  useRainityInput: 1
 --- !u!1 &515414637
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,6 +745,7 @@ GameObject:
   - component: {fileID: 515414640}
   - component: {fileID: 515414639}
   - component: {fileID: 515414638}
+  - component: {fileID: 515414642}
   m_Layer: 0
   m_Name: Platform (2)
   m_TagString: Untagged
@@ -792,6 +862,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &515414642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 515414637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e563aac59ebd145bb70172d0ef24c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowOffset: {x: 0, y: -40}
+  hideFromTaskbar: 0
+  neverHideWindow: 0
+  keepBottomMost: 0
+  borderless: 0
+  behindIcons: 0
+  useRainityInput: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +892,11 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
+  - component: {fileID: 519420030}
+  - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
+  - component: {fileID: 519420036}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -818,6 +912,25 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15db22024fe3f3747a7a43cd42d710d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 1
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -874,6 +987,65 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e563aac59ebd145bb70172d0ef24c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowOffset: {x: 0, y: -40}
+  hideFromTaskbar: 0
+  neverHideWindow: 0
+  keepBottomMost: 0
+  borderless: 1
+  behindIcons: 1
+  useRainityInput: 1
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9445ab2b9ce1f3a4d9d70547ec98cf09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputEntries: []
+--- !u!114 &519420036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af6c83e9c466254e894c704cf896fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &602521820
 GameObject:
   m_ObjectHideFlags: 0
@@ -889,6 +1061,9 @@ GameObject:
   - component: {fileID: 602521821}
   - component: {fileID: 602521826}
   - component: {fileID: 602521828}
+  - component: {fileID: 602521827}
+  - component: {fileID: 602521830}
+  - component: {fileID: 602521829}
   m_Layer: 9
   m_Name: Sayori
   m_TagString: Chibi
@@ -1139,8 +1314,20 @@ MonoBehaviour:
   neverHideWindow: 0
   keepBottomMost: 0
   borderless: 0
-  behindIcons: 0
+  behindIcons: 1
   useRainityInput: 1
+--- !u!114 &602521827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602521820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af6c83e9c466254e894c704cf896fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &602521828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,6 +1341,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputEntries: []
+--- !u!114 &602521829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602521820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15db22024fe3f3747a7a43cd42d710d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &602521830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602521820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1570652163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1169,6 +1390,9 @@ GameObject:
   - component: {fileID: 1570652168}
   - component: {fileID: 1570652169}
   - component: {fileID: 1570652171}
+  - component: {fileID: 1570652170}
+  - component: {fileID: 1570652173}
+  - component: {fileID: 1570652172}
   m_Layer: 11
   m_Name: Yuri
   m_TagString: Chibi
@@ -1381,8 +1605,20 @@ MonoBehaviour:
   neverHideWindow: 0
   keepBottomMost: 0
   borderless: 0
-  behindIcons: 0
+  behindIcons: 1
   useRainityInput: 1
+--- !u!114 &1570652170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570652163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af6c83e9c466254e894c704cf896fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1570652171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,6 +1632,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputEntries: []
+--- !u!114 &1570652172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570652163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15db22024fe3f3747a7a43cd42d710d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1570652173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570652163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1574861001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1681,9 @@ GameObject:
   - component: {fileID: 1574861002}
   - component: {fileID: 1574861007}
   - component: {fileID: 1574861009}
+  - component: {fileID: 1574861008}
+  - component: {fileID: 1574861011}
+  - component: {fileID: 1574861010}
   m_Layer: 10
   m_Name: Monika
   m_TagString: Chibi
@@ -1632,8 +1905,20 @@ MonoBehaviour:
   neverHideWindow: 0
   keepBottomMost: 0
   borderless: 0
-  behindIcons: 0
+  behindIcons: 1
   useRainityInput: 1
+--- !u!114 &1574861008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574861001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af6c83e9c466254e894c704cf896fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1574861009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1647,6 +1932,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputEntries: []
+--- !u!114 &1574861010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574861001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15db22024fe3f3747a7a43cd42d710d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1574861011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574861001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
 --- !u!1 &1841811867
 GameObject:
   m_ObjectHideFlags: 0
@@ -1659,6 +1978,7 @@ GameObject:
   - component: {fileID: 1841811870}
   - component: {fileID: 1841811869}
   - component: {fileID: 1841811868}
+  - component: {fileID: 1841811872}
   m_Layer: 0
   m_Name: Platform (1)
   m_TagString: Untagged
@@ -1775,3 +2095,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &1841811872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1841811867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26e563aac59ebd145bb70172d0ef24c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowOffset: {x: 0, y: -40}
+  hideFromTaskbar: 0
+  neverHideWindow: 0
+  keepBottomMost: 0
+  borderless: 0
+  behindIcons: 0
+  useRainityInput: 1

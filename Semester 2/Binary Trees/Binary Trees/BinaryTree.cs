@@ -28,49 +28,80 @@ namespace Binary_Trees
             }
         }
 
-        private void Insert(Node1 ThatSecondNode, char ThatSecondChar)
+        private void Insert(Node1 ThatOneNode, char ThatOneChar)
         {
-            if (ThatSecondChar >= ThatSecondNode.Value && ThatSecondNode.RightChild == null)
+            if (ThatOneChar >= ThatOneNode.Value && ThatOneNode.RightChild == null)
             {
-                ThatSecondNode.RightChild = new Node1(ThatSecondChar);
+                ThatOneNode.RightChild = new Node1(ThatOneChar);
                 return;
             }
-            if (ThatSecondChar < ThatSecondNode.Value && ThatSecondNode.LeftChild == null)
+            if (ThatOneChar < ThatOneNode.Value && ThatOneNode.LeftChild == null)
             {
-                ThatSecondNode.LeftChild = new Node1(ThatSecondChar);
+                ThatOneNode.LeftChild = new Node1(ThatOneChar);
                 return;
             }
 
-            if (ThatSecondChar >= ThatSecondNode.Value)
+            if (ThatOneChar >= ThatOneNode.Value)
             {
-                Insert(ThatSecondNode.RightChild, ThatSecondChar);
+                Insert(ThatOneNode.RightChild, ThatOneChar);
             }
-            else if (ThatSecondChar < ThatSecondNode.Value)
+            else if (ThatOneChar < ThatOneNode.Value)
             {
-                Insert(ThatSecondNode.LeftChild, ThatSecondChar);
+                Insert(ThatOneNode.LeftChild, ThatOneChar);
             }
         }
-        public bool Remove(char ThatThirdChar)
+        public bool Remove(char ThatOneChar)
         {
             throw new NotImplementedException();
         }
-        private bool Remove(Node1 ThatThirdNode, char ThatFourthChar)
+        private bool Remove(Node1 ThatOneNode, char ThatOneChar)
         {
             throw new NotImplementedException();
         }
-        public bool Search(char ThatFifthChar)
+        public bool Search(char ThatOneChar)
         {
             throw new NotImplementedException();
         }
-        private bool Search(Node1 ThatFourthNode, char ThatSixthChar)
+        private bool Search(Node1 ThatOneNode, char ThatOneChar)
         {
-            throw new NotImplementedException();
+            if (ThatOneChar > ThatOneNode.Value)
+            {
+                if (ThatOneNode.RightChild != null)
+                {
+                    Search(ThatOneNode.RightChild, ThatOneChar);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if(ThatOneChar < ThatOneNode.Value)
+            {
+                if (ThatOneNode.LeftChild != null)
+                {
+                    Search(ThatOneNode.LeftChild, ThatOneChar);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else if (ThatOneChar == ThatOneNode.Value)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         public void PreOrderPrint()
         {
             throw new NotImplementedException();
         }
-        private void PreOrderPrint(Node1 ThatFifthNode)
+        private void PreOrderPrint(Node1 ThatOneNode)
         {
             throw new NotImplementedException();
         }
